@@ -1,7 +1,6 @@
 # Walk My Dog
 
-![This Dog Needs A Walk](https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-)
+![This Dog Needs A Walk](https://i.imgur.com/UsOEOfC.jpg)
 
 ## Project Description 
 
@@ -11,11 +10,11 @@ My game is called Walk My Dog (inspired by my own dog who is a mischevious demon
 
 **Initial Landing View**
 
-![Initial Landing View](https://imgur.com/4WjgN5J)
+![Initial Landing View](./assets/Screenshot%202025-03-10%20at%203.01.39 PM.png)
 
 **Results View**
 
-![image](https://imgur.com/o0oQQW1)
+![Final Landing View](./assets/Screenshot%202025-03-10%20at%203.02.15 PM.png)
 
 
 #### MVP Goals
