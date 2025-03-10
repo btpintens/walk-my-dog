@@ -5,6 +5,7 @@
 
 //ICON/IMAGE table that lists tools (leash, bags, treats) we have 
 //and how much money earned. 
+// should the leash/treats/bags decrease? if so, why? 
 
 //PAGE 2
 //DISPLAY ELEMENT dog pooped, what do you do
