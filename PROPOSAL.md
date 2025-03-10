@@ -12,6 +12,9 @@ My game is called Walk My Dog (inspired by my own dog who is a mischevious demon
 
 ![Initial Landing View](./assets/Screenshot%202025-03-10%20at%203.01.39 PM.png)
 
+**Mid-Game View**
+![page 2 landing view](https://i.imgur.com/BVYqU4A.jpg?1)
+
 **Results View**
 
 ![Final Landing View](./assets/Screenshot%202025-03-10%20at%203.02.15 PM.png)
@@ -29,9 +32,10 @@ My game is called Walk My Dog (inspired by my own dog who is a mischevious demon
 #### Stretch Goals
 
 - As a player I would like to encorporate complex challenges beyond the 3-choice option on each level. These challenges would come with more complex "rewards": ___ex: taking pictures, having the dog do tricks, dressing the dog according to weather___ would all gain more money and/tools 
+- As a player I would like an audio component - dog barking - that would contribute to various clues/guidance/challenges
 - As a player I would like the animation to correspond with choices made during the game (basic dog commands: sit, stay, shake, etc.) as well as reflecting the change in environment as the walk progresses (based on weather, location, activity, etc. )
 - As a player I would like to be able to create a profile and maintain points and tools each time I play the game 
-- As a player I would like the ability to purchase additional tools thus extending gameplay and - ultimately - earn more money 
+- As a player I would like the ability to purchase additional tools thus extending gameplay and - ultimately - earn more money. Potentially adding pop-up trivia questions which would further add to money. 
 
 
 ## Pseudocode
@@ -39,7 +43,8 @@ My game is called Walk My Dog (inspired by my own dog who is a mischevious demon
 // DISPLAY ELEMENT: introductory message with image of dog and 
 // instructions of how to walk (what you'll encounter along 
 //the way)
-//BUTTON start walk button addEventListener
+//hint HOVER over dog and he'll tell you to give him a treat. once you give him the treat, the start walk button will be enabled
+//BUTTON start walk button addEventListener(aEL)
 
 //ICON/IMAGE table that lists tools (leash, bags, treats) we have 
 //and how much money earned. 
@@ -69,12 +74,41 @@ My game is called Walk My Dog (inspired by my own dog who is a mischevious demon
 //BUTTON I: offer dog a treat as a distraction and a reward for good behavior 
 //  (good job! keep walking) (lose a treat but get another $5) THANK YOU FOR WALKING MY DOG aEL
 
-//VAR leash, bags, treats, money 
+//VAR leash (loads at 1), bags (loads at 2), treats (loads at 3), money (loads at $5)
 //VAR buttons (3 per page, 9 total):  
 //IF proceed = increase money by 5. buttonB = reduce bags by 
 //1. 
 //buttonI = reduce treats by 1```
 
+/*-------------------------------- Constants --------------------------------*/
+dog (hover for hint on intro page)
+
+/*-------------------------------- Variables --------------------------------*/
+leash - will decrease if wrong answer clicked
+bags - will decrease if correct button is clicked
+treats - will decrease on first page (to start game) and if correct button is clicked on following pages
+money - can increase or decrease based on buttons clicked
+SOME MESSAGES ARE CODED IN HTML - so they aren't vars or consts
+
+/*------------------------ Cached Element References ------------------------*/
+the "panel" that holds tools and money: panelEl
+
+
+/*-------------------------------- Functions --------------------------------*/
+initGame when page loads
+increaseVal (money) when correct button is clicked and if game ends in a win
+decreaseVal (leash, bags, treats) when correct button clicked
+reset when game failed
+respondMes when button is clicked (message confirming you made the in/correct choice)
+dogHint when you hover over him and reveal a helpful message
+
+
+/*----------------------------- Event Listeners -----------------------------*/
+'click' - need a way to give a treat - will be reflected in the panel displaying tools 
+'click' - begin game
+'click' - return home/fail (different messages)
+'click' - proceed to next level (different messages)
+'hover - hover over dog for clue (to get going)
 
 
 
