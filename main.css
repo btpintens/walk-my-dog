@@ -42,7 +42,7 @@ h2 {
     display: none;
  }
 
- .hover-trigger:hover + .hover-content {
+ .hover-trigger:hover ~ .hover-content {
     display: block;
  }
 
@@ -54,7 +54,6 @@ h2 {
     border: solid;
     border-color: navy;
     border-width: medium;
-    color: ;
  }
 
  
