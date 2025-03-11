@@ -21,22 +21,39 @@ h2 {
  }
 
  .tools {
-    border: solid;
-    border: navy;
     border-width: medium;
-    width: 50%;
-    display: block;
-    padding: 10px 24px;
-    justify-content: space-evenly;
-
+    width: 25%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    column-rule: solid navy;
+    justify-content: space-around;
  }
 
  .dog {
-    border: solid 4px;
-    float: right;
-    width: 120px;
+    display: flex;
+    justify-content: right;
+    width: 460px;
     height: 120px;
  }
+
+.bbq {
+    border: navy;
+    border-width: medium;
+    width: 50px;
+    height: 50px;
+}
+
+.walk-button {
+    background-color: rgb(53, 251, 254);
+    border: solid 10px navy;
+    width: 150px;
+    height: 150px;
+    border-width: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 
  .hover-content {
     display: none;
@@ -56,4 +73,18 @@ h2 {
     border-width: medium;
  }
 
- 
+ #fail {
+    font-family: 'rubik wet paint', 'gill sans';   
+    box-sizing: border-box; 
+    text-align: center;
+    font-size: 88px;
+    background-color: lightblue;
+    display: none; 
+    position: absolute;
+    top: 20%;
+    center: calc(50% - 250px);
+ }
+
+ .hidden {
+    display: none;
+}

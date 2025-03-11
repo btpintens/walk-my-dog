@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./main.css" />
     <script defer src="./app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Rubik+Wet+Paint&family=Shizuru&display=swap" rel="stylesheet">
     <title>Walk My Dog</title>
   </head>
   <body>
@@ -21,19 +24,27 @@
       <button id="treats">Treats: 3</button>
       <button id="money">Money</button>
     </section>
+    <div class="page-prompt">
+        <!-- To fill with js -->
+    </div>
+
     <section class="dog">
-      <div class="hover-trigger">this is a dog image</div>
-    </section>
-    <section>
-      <div class="hover-content">
-        Hint: Give me a treat if you want me to walk with you!
-      </div>
+    <div class="hover-trigger">this is a dog image</div>
     </section>
 
-    <section class="walk">
-      <a href="./pagetwo.html">
+    <div class="walk"> 
         <button disabled class="walk-button">"Let's Walk!"</button>
-      </a>
+    </div>
+
+    <section>
+        <div class="hover-content">
+          Hint: Give me a treat if you want me to walk with you!
+        </div>
     </section>
+
+    <div id="fail">
+        FAIL! You're out of treats and you haven't 
+        even left the house yet!
+    </div>
   </body>
 </html>

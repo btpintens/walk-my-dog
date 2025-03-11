@@ -11,9 +11,10 @@ const dog = document.querySelector(".hover-trigger");
 const dogHint = document.querySelector(".hover-content");
 const treatBtn = document.querySelector("#treats");
 const walkEl = document.querySelector(".walk-button");
+const failDiv = document.querySelector("#fail");
+const pagePromptSection = document.querySelector(".page-prompt")
 
 const tools = { Leash: 1, Bags: 2, Treats: 3, Money: 5 };
-//let numTreats = parseInt(document.querySelector('#treats'))
 
 dog.addEventListener("mouseover", () => {
   dogHint.style.display = "block";
@@ -31,11 +32,40 @@ treatEl.addEventListener("click", () => {
     tools.Treats -= 1;
     treatBtn.textContent = `Treats: ${tools.Treats}`;
 
-    if (tools.Treats <= 2) {
+  } if (tools.Treats <= 2) {
       walkEl.disabled = false;
+    
+    } if (tools.Treats === 0) {
+        failDiv.style.display = "block";
     }
+  });
+
+  walkEl.addEventListener("click", () => {
+    document.querySelector("h1").classList.add("hidden")
+    document.querySelector("h2").classList.add("hidden")
+
+    walkEl.classList.add("hidden")
+    displayPrompt()
+  })
+
+
+  function displayPrompt(){
+    const html = `
+        <button class="banana">Leave It</button>
+        <button>Pick it up</button>
+        <button>Can you help</button>
+    `
+
+    pagePromptSection.innerHTML = ""
+    pagePromptSection.insertAdjacentHTML("beforeend", html)
+
+
   }
-});
+
+//    } else (tools.Treats === 0) {
+//         failDiv.style.display = "block"}
+//    });
+    
 
 // Check if treats are 2 or less, to enable the walk button
 // button.disabled = false
@@ -77,4 +107,4 @@ treatEl.addEventListener("click", () => {
 //VAR leash, bags, treats, money
 //VAR buttons (3 per page, 9 total):
 //IF proceed = increase money by 5. buttonB = reduce bags by 1.
-//buttonI = reduce treats by 1.
+//buttonI = reduce treats by 1
