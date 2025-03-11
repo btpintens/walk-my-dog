@@ -5,7 +5,24 @@
 
 //ICON/IMAGE table that lists tools (leash, bags, treats) we have 
 //and how much money earned. 
-// should the leash/treats/bags decrease? if so, why? 
+// 
+
+const walkEl = document.querySelector(".walk")
+
+walkEl.addEventListener('click', ( ) => {
+    //console.log("I work");
+});
+
+const treatEl = document.querySelector("#treats")
+
+treatEl.addEventListener('click', ( ) => {
+    console.log("i work too")
+});
+
+
+
+
+
 
 //PAGE 2
 //DISPLAY ELEMENT dog pooped, what do you do

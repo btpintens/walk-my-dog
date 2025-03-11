@@ -2,12 +2,59 @@ h1 {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: navy;
     text-align: center;
-    font-size: 
+    font-size: 36px;
 }
 
 h2 {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center; 
-    font-size; 
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 22px;
+    height: 104px;
+    width: 680px;
 }
+ .intro {
+    display: flex;
+    border: solid;
+    border-color: navy;
+    border-width: medium;
 
+ }
+
+ .tools {
+    border: solid;
+    border: navy;
+    border-width: medium;
+    width: 50%;
+    display: block;
+    padding: 10px 24px;
+    justify-content: space-evenly;
+
+ }
+
+ .dog {
+    border: solid 4px;
+    float: right;
+    width: 120px;
+    height: 120px;
+ }
+
+ .hover-content {
+    display: none;
+ }
+
+ .hover-trigger:hover + .hover-content {
+    display: block;
+ }
+
+ .button {
+    width: 720px;
+    height: 48px;
+    display: flex; 
+    justify-content: space-evenly;
+    border: solid;
+    border-color: navy;
+    border-width: medium;
+    color: ;
+ }
+
+ 
