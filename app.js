@@ -11,12 +11,13 @@ const dog = document.querySelector(".hover-trigger");
 const dogHint = document.querySelector(".hover-content");
 const treatBtn = document.querySelector("#treats");
 const correctTwo = document.querySelector("#correct-round-two");
+const choicesTwo = document.querySelector(".choices-two");
 const walkEl = document.querySelector(".walk-button");
 const failDiv = document.querySelector("#fail");
 const failDivTwo = document.querySelector("#fail-two");
 const bagsBtn = document.querySelector("#bags");
 const pagePromptSection = document.querySelector(".page-prompt");
-const pageTwoPrompt = document.querySelector("correct-round-two");
+const pageTwoPrompt = document.querySelector(".page-two");
 
 const tools = { Leash: 1, Bags: 2, Treats: 3, Money: 5 };
 
@@ -47,9 +48,11 @@ treatEl.addEventListener("click", () => {
   walkEl.addEventListener("click", () => {
     document.querySelector("h1").classList.add("hidden")
     document.querySelector("h2").classList.add("hidden")
+    choicesTwo.style.display = "block";
+    pageTwoPrompt.style.display = "block";
 
-    walkEl.classList.add("hidden")
-    displayPrompt()
+    //walkEl.classList.add("hidden")
+    //displayPrompt()
   })
 
 const bagEl = document.querySelector("#bags");
@@ -73,26 +76,26 @@ roundTwoFail.forEach((round) => {
 
 
 
-pageTwoPrompt.addEventListener("click", () => {
-    document.querySelector("#page-two").classList.add("hidden")
+// pageTwoPrompt.addEventListener("click", () => {
+//     document.querySelector("#page-two").classList.add("hidden")
 
-    pageTwoPrompt.classList.add("hidden")
-    displayPrompt()
-})
-
-
-  function displayPrompt(){
-    const html = `
-        <button>Leave It</button>
-        <button>Pick it up</button>
-        <button>Can you help</button>
-    `
-
-    pagePromptSection.innerHTML = ""
-    pagePromptSection.insertAdjacentHTML("beforeend", html)
+//     pageTwoPrompt.classList.add("hidden")
+//     displayPrompt()
+// })
 
 
-  }
+//   function displayPrompt(){
+//     const html = `
+//         <button>Leave It</button>
+//         <button>Pick it up</button>
+//         <button>Can you help</button>
+//     `
+
+//     pagePromptSection.innerHTML = ""
+//     pagePromptSection.insertAdjacentHTML("beforeend", html)
+
+
+//   }
 
 //document.getElementById("myButton").disabled = true
 //walkEl.addEventListener('click', ( ) => {
