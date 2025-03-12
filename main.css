@@ -10,23 +10,25 @@ h2 {
     text-align: center;
     font-size: 22px;
     height: 104px;
-    width: 680px;
+    
 }
  .intro {
     display: flex;
     border: solid;
     border-color: navy;
     border-width: medium;
-
  }
 
+
  .tools {
-    border-width: medium;
-    width: 25%;
-    height: 240px;
+    box-sizing: border-box;
+    border: 2px solid navy;
+    padding: 10px;
+    width: 15%;
+    height: 220px;
     display: flex;
     flex-direction: column;
-    column-rule: solid navy;
+    column-rule: solid;
     justify-content: space-around;
  }
 
@@ -73,7 +75,12 @@ h2 {
     border-width: medium;
  }
 
- #fail {
+ .choices-two {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+ }
+ #fail, #fail-two {
     font-family: 'rubik wet paint', 'gill sans';   
     box-sizing: border-box; 
     text-align: center;
@@ -83,7 +90,7 @@ h2 {
     position: absolute;
     top: 25%;
     border-radius: 25%;
-    center: calc(50% - 250px);
+    /* center: calc(50% - 250px); */
  }
 
  .hidden {

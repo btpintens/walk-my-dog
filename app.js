@@ -10,9 +10,13 @@
 const dog = document.querySelector(".hover-trigger");
 const dogHint = document.querySelector(".hover-content");
 const treatBtn = document.querySelector("#treats");
+const correctTwo = document.querySelector("#correct-round-two");
 const walkEl = document.querySelector(".walk-button");
 const failDiv = document.querySelector("#fail");
-const pagePromptSection = document.querySelector(".page-prompt")
+const failDivTwo = document.querySelector("#fail-two");
+const bagsBtn = document.querySelector("#bags");
+const pagePromptSection = document.querySelector(".page-prompt");
+const pageTwoPrompt = document.querySelector("correct-round-two");
 
 const tools = { Leash: 1, Bags: 2, Treats: 3, Money: 5 };
 
@@ -48,10 +52,38 @@ treatEl.addEventListener("click", () => {
     displayPrompt()
   })
 
+const bagEl = document.querySelector("#bags");
+bagEl.addEventListener("click", () => {
+    if (tools.Bags > 0) {
+        tools.Bags -= 1;
+        bagsBtn.textContent =  `Bags: ${tools.Bags}`;
+
+        if (tools.Bags <= 1) {
+            correctTwo.disabled = false;
+        }   
+    }
+});
+
+const roundTwoFail = document.querySelectorAll(".round-two-fail");
+roundTwoFail.forEach((round) => {
+    round.addEventListener("click", () => {
+        failDivTwo.style.display = "block";
+    });
+})
+
+
+
+pageTwoPrompt.addEventListener("click", () => {
+    document.querySelector("#page-two").classList.add("hidden")
+
+    pageTwoPrompt.classList.add("hidden")
+    displayPrompt()
+})
+
 
   function displayPrompt(){
     const html = `
-        <button class="banana">Leave It</button>
+        <button>Leave It</button>
         <button>Pick it up</button>
         <button>Can you help</button>
     `
@@ -62,22 +94,12 @@ treatEl.addEventListener("click", () => {
 
   }
 
-//    } else (tools.Treats === 0) {
-//         failDiv.style.display = "block"}
-//    });
-    
-
-// Check if treats are 2 or less, to enable the walk button
-// button.disabled = false
-
 //document.getElementById("myButton").disabled = true
 //walkEl.addEventListener('click', ( ) => {
 //  open and init page 2
 //console.log("Let's Walk");
 // });
 
-// if (walkEl.disable === true)
-//     {return walkEl.disable !== true};
 
 //PAGE 2
 //DISPLAY ELEMENT dog pooped, what do you do
@@ -104,7 +126,4 @@ treatEl.addEventListener("click", () => {
 //BUTTON I: offer dog a treat as a distraction and a reward for good behavior
 //  (good job! keep walking) (lose a treat but get another $5) THANK YOU FOR WALKING MY DOG aEL
 
-//VAR leash, bags, treats, money
-//VAR buttons (3 per page, 9 total):
-//IF proceed = increase money by 5. buttonB = reduce bags by 1.
-//buttonI = reduce treats by 1
+
