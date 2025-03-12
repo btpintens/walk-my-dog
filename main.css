@@ -77,11 +77,12 @@ h2 {
     font-family: 'rubik wet paint', 'gill sans';   
     box-sizing: border-box; 
     text-align: center;
-    font-size: 88px;
+    font-size: 76px;
     background-color: lightblue;
     display: none; 
     position: absolute;
-    top: 20%;
+    top: 25%;
+    border-radius: 25%;
     center: calc(50% - 250px);
  }
 
