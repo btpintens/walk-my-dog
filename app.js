@@ -9,17 +9,27 @@
 
 const dog = document.querySelector(".hover-trigger");
 const dogHint = document.querySelector(".hover-content");
+const dogHintTwo = document.querySelector(".hover-content-two");
 const treatBtn = document.querySelector("#treats");
-const correctTwo = document.querySelector("#correct-round-two");
-const choicesTwo = document.querySelector(".choices-two");
-const walkEl = document.querySelector(".walk-button");
-const failDiv = document.querySelector("#fail");
-const failDivTwo = document.querySelector("#fail-two");
 const bagsBtn = document.querySelector("#bags");
+const leashBtn = document.querySelector("#leash");
 const pagePromptSection = document.querySelector(".page-prompt");
+const failDiv = document.querySelector("#fail");
+const walkEl = document.querySelector(".walk-button");
 const pageTwoPrompt = document.querySelector(".page-two");
+const correctTwo = document.querySelector("#correct-two");
+const choicesTwo = document.querySelector(".choices-two");
+const wrongTwo = document.querySelectorAll(".two-fail");
+const failDivTwo = document.querySelector("#fail-two");
+const pageThreePrompt = document.querySelector(".page-three");
+const correctThree = document.querySelector("#correct-three");
+const choicesThree = document.querySelector("#choices-three");
+const wrongThreeA = document.querySelector(".three-fail-a");
+const wrongThreeB = document.querySelector(".three-fail-b");
+const failDivThreeA = document.querySelector(".fail-three-a");
+const failDivThreeB = document.querySelector(".fail-three-b");
 
-const tools = { Leash: 1, Bags: 2, Treats: 3, Money: 5 };
+const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
 dog.addEventListener("mouseover", () => {
   dogHint.style.display = "block";
@@ -50,52 +60,53 @@ treatEl.addEventListener("click", () => {
     document.querySelector("h2").classList.add("hidden")
     choicesTwo.style.display = "block";
     pageTwoPrompt.style.display = "block";
-
-    //walkEl.classList.add("hidden")
-    //displayPrompt()
   })
+
+  const roundTwoFail = document.querySelectorAll(".round-two-fail");
+  roundTwoFail.forEach((round) => {
+      round.addEventListener("click", () => {
+          failDivTwo.style.display = "block";
+      });
+  });
 
 const bagEl = document.querySelector("#bags");
 bagEl.addEventListener("click", () => {
     if (tools.Bags > 0) {
         tools.Bags -= 1;
-        bagsBtn.textContent =  `Bags: ${tools.Bags}`;
+        bagsBtn.textContent = `Bags: ${tools.Bags}`;
 
-        if (tools.Bags <= 1) {
+        if (tools.Bags = 1) {
             correctTwo.disabled = false;
+            roundTwoFail.forEach((round) => {
+                round.disabled = false;
+            })
         }   
     }
 });
 
-const roundTwoFail = document.querySelectorAll(".round-two-fail");
-roundTwoFail.forEach((round) => {
-    round.addEventListener("click", () => {
-        failDivTwo.style.display = "block";
-    });
-})
+correctTwo.addEventListener("click", () => {
+    choicesTwo.style.display = "hidden";
+    pageTwoPrompt.style.display = "hidden";
+    pageThreePrompt.style.display = "block";
+    choicesThree.style.display = "block";
+
+});
+
+const leashEl = document.querySelector("#leash");
+leashEl.addEventListener("click", () => {
+  if (tools.Leash > 0) {
+    tools.Leash -= 1;
+    leashBtn.textContent = `Leash: ${tools.Leash}`;
+
+  } if (tools.Leash <= 2) {
+      walkEl.disabled = false;
+    
+    } if (tools.Leash = 1) {
+        failDiv.style.display = "block";
+    }
+  });
 
 
-
-// pageTwoPrompt.addEventListener("click", () => {
-//     document.querySelector("#page-two").classList.add("hidden")
-
-//     pageTwoPrompt.classList.add("hidden")
-//     displayPrompt()
-// })
-
-
-//   function displayPrompt(){
-//     const html = `
-//         <button>Leave It</button>
-//         <button>Pick it up</button>
-//         <button>Can you help</button>
-//     `
-
-//     pagePromptSection.innerHTML = ""
-//     pagePromptSection.insertAdjacentHTML("beforeend", html)
-
-
-//   }
 
 //document.getElementById("myButton").disabled = true
 //walkEl.addEventListener('click', ( ) => {

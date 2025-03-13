@@ -19,28 +19,41 @@
       for you - you'll need them along the way!
     </h2>
     <h2 class="page-two hidden">
-        PAGE 2 Nature called and Dog answered. What do you do? 
+        Nature called and Dog answered. What do you do? 
     </h2>
-    <h2 class="page3 hidden">
-        PAGE 3 Look! A squirrel! What do you do?
+    <h2 class="page-three hidden">
+        Look! A squirrel! What do you do?
     </h2>
-    <h2 class="page4 hidden">
-        PAGE 4 A stranger is coming our way. What do you do?
+    <h2 class="page-four hidden">
+        A stranger is coming our way. What do you do?
     </h2>
   
 
     <section class="tools">
-      <button id="leash">Leash: 1</button>
+      <button id="leash">Leash: 2</button>
       <button id="bags">Bags: 2</button>
       <button id="treats">Treats: 3</button>
       <button id="money">Money</button>
     </section>
 
     <section class="choices-two hidden">
-    <button class="round-two-fail">Leave It</button>
-    <button id="correct-round-two">Pick it up</button>
-    <button class="round-two-fail">Can you help</button>
+    <button disabled class="two-fail">Leave It</button>
+    <button disabled id="correct-round-two">Pick it up</button>
+    <button disabled class="two-fail">Can you help</button>
     </section>
+
+    <section class="choices-three hidden">
+        <button disabled class="three-fail-a">Let Him Chase It!</button>
+        <button disabled class="three-fail-b">Chase It Together!</button>
+        <button disabled id="correct-three">Hold that Leash TIGHT!</button>
+    </section>
+
+    <section class="choices-four hidden">
+        <button disabled class="round-four-fail"></button>
+        <button disabled class="round-four-fail"></button>
+        <button disabled class="correct-four"></button>
+    </section>
+
 
     <div class="page-prompt">
         <!-- To fill with js -->
@@ -55,10 +68,10 @@
     </div>
 
     <section>
-        <div class="hover-content">
+        <div class="hover-content hidden">
           Hint: Give me a treat if you want me to walk with you!
         </div>
-        <div class="hover-content2 hidden">
+        <div class="hover-content-two hidden">
             PAGE 4 Hint: Do not listen to him! Under no circumstances is he allowed to bite ankles!
         </div>
     </section>
