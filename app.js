@@ -31,7 +31,7 @@ const failDivThreeB = document.querySelector("#fail-three-b");
 const pageFourPrompt = document.querySelector(".page-four");
 const choicesFour = document.querySelector(".choices-four");
 const wrongFour = document.querySelectorAll(".four-fail");
-const failDivFour = document.querySelector(".fail-four");
+const failDivFour = document.querySelector("#fail-four");
 const correctFour = document.querySelector("#correct-four");
 const gameFailMsg = document.querySelector("#game-fail");
 const winning = document.querySelector("#winner");
@@ -194,11 +194,16 @@ const checkCombo = () => {
   }
 };
 
-// wrongFour.addEventListener("click", () => {
-//   failDivFour.classList.remove("hidden");
-// });
+wrongFour.forEach((four) => {
+    four.addEventListener("click", () => {
+  failDivFour.style.display = "block";
+    });
+});
+
 
 correctFour.addEventListener("click", () => {
   money.textContent = `Money: ${[(tools.Money += 5)]}`;
-  winning.classList.remove("hidden");
+  winning.style.display = "block";
 });
+
+
