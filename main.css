@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(161, 212, 254);
+    background-color: #c1c2c3b4;
 }
 
 h1 {
@@ -25,6 +25,11 @@ h2 {
 
 p {
    display: hidden;
+}
+.first-dog {
+    height: 360px;
+    display: flex;
+    flex-direction: right;
 }
 
  .intro {
