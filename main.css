@@ -22,6 +22,11 @@ h2 {
     font-size: 20px;
     height: 82px;  
 }
+
+p {
+   display: hidden;
+}
+
  .intro {
     display: flex;
     border: solid;
