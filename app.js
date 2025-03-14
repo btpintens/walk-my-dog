@@ -13,6 +13,7 @@ const dogHintTwo = document.querySelector(".hover-content-two");
 const treatBtn = document.querySelector("#treats");
 const bagsBtn = document.querySelector("#bags");
 const leashBtn = document.querySelector("#leash");
+const money = document.querySelector("#money");
 const failDiv = document.querySelector("#fail");
 const walkEl = document.querySelector(".walk-button");
 const pageTwoPrompt = document.querySelector(".page-two");
@@ -30,14 +31,34 @@ const failDivThreeB = document.querySelector("#fail-three-b");
 const pageFourPrompt = document.querySelector(".page-four");
 const choicesFour = document.querySelector(".choices-four");
 const wrongFour = document.querySelectorAll(".four-fail");
-const correctFour = document.querySelector("#correct-four")
+const failDivFour = document.querySelector(".fail-four");
+const correctFour = document.querySelector("#correct-four");
+const gameFailMsg = document.querySelector("#game-fail");
+const winning = document.querySelector("#winner");
 
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
-dog.addEventListener("mouseover", () => {
+const checkComboFail = true;
+
+setInterval(() => {
+  console.log("running", tools);
+  if (tools.Leash === 0 || tools.Bags === 0 || tools.Treats === 0) {
+    gameFailMsg.style.display = "block";
+  }
+
+  checkCombo();
+}, 1000);
+
+const dogMouseOver = () => {
   dogHint.style.display = "block";
   treatBtn.style.boxShadow = "rgb(0, 255, 255) 0 0 15px 5px";
-});
+};
+
+const dogMouseOverTwo = () => {
+  dogHintTwo.style.display = "block";
+};
+
+dog.addEventListener("mouseover", dogMouseOver);
 
 dog.addEventListener("mouseout", () => {
   dogHint.style.display = "none";
@@ -55,9 +76,15 @@ treatEl.addEventListener("click", () => {
   if (tools.Treats <= 2) {
     walkEl.disabled = false;
   }
+
   if (tools.Treats === 0) {
     failDiv.style.display = "block";
   }
+
+//   // Might need another condition such as choices-two is also not disabled
+//   if (walkEl.disabled) {
+//     // call checkCombo function somewhere here
+//   }
 });
 
 //select walkBtn
@@ -67,20 +94,22 @@ treatEl.addEventListener("click", () => {
 walkEl.addEventListener("click", () => {
   document.querySelector("h1").classList.add("hidden");
   document.querySelector("h2").classList.add("hidden");
-  choicesTwo.classList.remove("hidden")
-  pageTwoPrompt.classList.remove("hidden")
-  walkEl.classList.add("hidden")
+  choicesTwo.classList.remove("hidden");
+  pageTwoPrompt.classList.remove("hidden");
+  walkEl.classList.add("hidden");
+  //walkEl.disabled = true;
+  money.textContent = `Money: ${(tools.Money = +5)}`;
+  dog.removeEventListener("mouseover", dogMouseOver);
 });
 
 //select bagBtn (correct answer)
-//enable choices to click 
+//enable choices to click
 const bagEl = document.querySelector("#bags");
 bagEl.addEventListener("click", () => {
   if (tools.Bags > 0) {
     tools.Bags -= 1;
     bagsBtn.textContent = `Bags: ${tools.Bags}`;
-
-    if ((tools.Bags = 1)) {
+    if (tools.Bags === 1) {
       correctTwo.disabled = false;
       wrongTwo.forEach((wrong) => {
         wrong.disabled = false;
@@ -89,20 +118,24 @@ bagEl.addEventListener("click", () => {
   }
 });
 //chose wrong
-//fail message 
- wrongTwo.forEach((wrong) => {
-    wrong.addEventListener("click", () => {
-         failDivTwo.style.display = "block";
+//fail message
+wrongTwo.forEach((wrong) => {
+  wrong.addEventListener("click", () => {
+    failDivTwo.style.display = "block";
+  });
 });
- });
 
- //select correct answer
- //hide page 2 elements
- //display page 3 elements 
+if (tools.Treats <= 2 && tools.Bags === 1) {
+  walkEl.disabled = false;
+}
+//select correct answer
+//hide page 2 elements
+//display page 3 elements
 
 correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
   pageTwoPrompt.classList.add("hidden");
+  money.textContent = `Money: ${(tools.Money += 5)}`;
   pageThreePrompt.classList.remove("hidden");
   choicesThree.classList.remove("hidden");
 });
@@ -124,13 +157,14 @@ leashEl.addEventListener("click", () => {
   }
 });
 
-//fail message 
+//fail message
 
 wrongThreeA.addEventListener("click", () => {
-    failDivThreeA.style.display = "block";
+  failDivThreeA.style.display = "block";
+  let;
 });
 wrongThreeB.addEventListener("click", () => {
-    failDivThreeB.style.display = "block";
+  failDivThreeB.style.display = "block";
 });
 
 //correct answer
@@ -140,29 +174,31 @@ wrongThreeB.addEventListener("click", () => {
 //display page 4 answers
 
 correctThree.addEventListener("click", () => {
-    choicesThree.classList.add("hidden");
-    pageThreePrompt.classList.add("hidden");
-    pageFourPrompt.classList.remove("hidden");
-    choicesFour.classList.remove("hidden");
+  choicesThree.classList.add("hidden");
+  pageThreePrompt.classList.add("hidden");
+  money.textContent = `Money: ${(tools.Money += 5)}`;
+  pageFourPrompt.classList.remove("hidden");
+  choicesFour.classList.remove("hidden");
+  dog.addEventListener("mouseover", dogMouseOverTwo);
+  dog.addEventListener("mouseout", () => {
+    dogHintTwo.style.display = "none";
+  });
 });
 
-//IF WE ALREADY DECLARED AN EVENT LISTENER (TREAT AT PAGE 1) DO WE NEED 
-//TO DECLARE IT AGAIN OR HOW DO WE CALL IT AGAIN? 
+const checkCombo = () => {
+  const choicesFourButtons = choicesFour.querySelectorAll("button");
+  if (tools.Leash === 1 && tools.Bags === 1 && tools.Treats === 1) {
+    choicesFourButtons.forEach((btn) => {
+      btn.disabled = false;
+    });
+  }
+};
 
-//PAGE 3
-// DISPLAY: dog sees squirrel, what do you do
-//BUTTON D: let him chase it
-//  (return home, you lost my dog) FAIL PAGE aEL
-//BUTTON E: you both chase it together
-//  (return home you both died) FAIL PAGE aEL
-//BUTTON F: hold that leash tight! PROCEED TO PAGE 4 aEL
-//  (good job! keep walking) (add another $5)
+// wrongFour.addEventListener("click", () => {
+//   failDivFour.classList.remove("hidden");
+// });
 
-//PAGE 4
-//DISPLAY ELEMENT there's a stranger approaching, what do you do
-//BUTTON G: nothing
-//  (he bites stranger. you're fired. go home) FAIL PAGE aEL
-//BUTTON H: ask dog nicely to not bite the stranger
-//  (this dog does not respect you. go home) FAIL PAGE aEL
-//BUTTON I: offer dog a treat as a distraction and a reward for good behavior
-//  (good job! keep walking) (lose a treat but get another $5) THANK YOU FOR WALKING MY DOG aEL
+correctFour.addEventListener("click", () => {
+  money.textContent = `Money: ${[(tools.Money += 5)]}`;
+  winning.classList.remove("hidden");
+});
