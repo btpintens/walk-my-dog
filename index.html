@@ -28,7 +28,20 @@
         A stranger is coming our way. What do you do?
     </h2>
 
+    <div class="dog-info">
     <img src="./assets/intro img.png" alt="dog first page" class="first-dog">
+    <img src="./assets/pagetwo.png" alt="dog second page" class="second-dog hidden">
+    <img src="./assets/pagethree.png" alt="dog third page" class="third-dog hidden">
+    <img src="./assets/pagefour.png" alt="dog fourth page" class="fourth-dog hidden">
+
+    </div>    
+    <object class="tools">
+        <button id="leash">Leash: 2</button>
+        <button id="bags">Bags: 2</button>
+        <button id="treats">Treats: 3</button>
+        <button id="money">Money</button>
+    </object>
+      </div>
 
     <div>
         <h2 class="hover-content hidden" id="hint-one">
@@ -39,6 +52,8 @@
         </h2>
     </div>
     
+    <button id="restartButton">Try Again</button>
+
     <p class="dog-one hidden">
         I look tough, but I'm a little softy. I love scratches just like every other dog. 
         And that thing my mom told you about me eating my own poop? She was kidding.
@@ -52,29 +67,22 @@
         never even think about doing something so childish. 
     </p>
 
-    <section class="tools">
-      <button id="leash">Leash: 2</button>
-      <button id="bags">Bags: 2</button>
-      <button id="treats">Treats: 3</button>
-      <button id="money">Money</button>
-    </section>
-
     <section class="choices-two hidden">
-    <button disabled class="two-fail">Leave It</button>
-    <button disabled id="correct-two">Pick it up</button>
-    <button disabled class="two-fail">Ask Someone Else for Help</button>
+    <button disabled class="two-fail oneA">Leave It</button>
+    <button disabled class="oneA" id="correct-two">Pick it up</button>
+    <button disabled class="two-fail oneA">Ask Someone Else for Help</button>
     </section>
 
     <section class="choices-three hidden">
-        <button disabled class="three-fail-a">Let Him Chase It!</button>
-        <button disabled class="three-fail-b">Chase It Together!</button>
-        <button disabled id="correct-three">Hold that Leash TIGHT!</button>
+        <button disabled class="three-fail-a twoA">Let Him Chase It!</button>
+        <button disabled class="three-fail-b twoA">Chase It Together!</button>
+        <button disabled class="twoA" id="correct-three">Hold that Leash TIGHT!</button>
     </section>
 
     <section class="choices-four hidden">
-        <button disabled class="four-fail">Nothing</button>
-        <button disabled class="four-fail">Ask Him Nicely to Be Polite</button>
-        <button disabled id="correct-four">Tell Him to Sit and use a Treat for Distraction</button>
+        <button disabled class="four-fail fourA">Nothing</button>
+        <button disabled class="four-fail fourA">Ask Him Nicely to Be Polite</button>
+        <button disabled class="fourA" id="correct-four">Tell Him to Sit and use a Treat for Distraction</button>
     </section>
 
 

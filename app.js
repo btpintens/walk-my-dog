@@ -36,9 +36,20 @@ const correctFour = document.querySelector("#correct-four");
 const gameFailMsg = document.querySelector("#game-fail");
 const winning = document.querySelector("#winner");
 
+const imageOne = document.querySelector(".first-dog");
+const imageTwo =document.querySelector(".second-dog");
+const imageThree = document.querySelector(".third-dog");
+const imageFour = document.querySelector(".fourth-dog");
+
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
 const checkComboFail = true;
+
+const restart = document.querySelector("#restartButton");
+restart.addEventListener("click", function(){
+    window.location.reload();
+    return false;
+});
 
 setInterval(() => {
   console.log("running", tools);
@@ -94,8 +105,10 @@ treatEl.addEventListener("click", () => {
 walkEl.addEventListener("click", () => {
   document.querySelector("h1").classList.add("hidden");
   document.querySelector("h2").classList.add("hidden");
+  imageOne.classList.add("hidden");
   choicesTwo.classList.remove("hidden");
   pageTwoPrompt.classList.remove("hidden");
+  imageTwo.classList.remove("hidden");
   walkEl.classList.add("hidden");
   //walkEl.disabled = true;
   money.textContent = `Money: ${(tools.Money = +5)}`;
@@ -135,7 +148,9 @@ if (tools.Treats <= 2 && tools.Bags === 1) {
 correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
   pageTwoPrompt.classList.add("hidden");
+  imageTwo.classList.add("hidden");
   money.textContent = `Money: ${(tools.Money += 5)}`;
+  imageThree.classList.remove("hidden");
   pageThreePrompt.classList.remove("hidden");
   choicesThree.classList.remove("hidden");
 });
@@ -176,9 +191,11 @@ wrongThreeB.addEventListener("click", () => {
 correctThree.addEventListener("click", () => {
   choicesThree.classList.add("hidden");
   pageThreePrompt.classList.add("hidden");
+  imageThree.classList.add("hidden");
   money.textContent = `Money: ${(tools.Money += 5)}`;
   pageFourPrompt.classList.remove("hidden");
   choicesFour.classList.remove("hidden");
+  imageFour.classList.remove("hidden");
   dog.addEventListener("mouseover", dogMouseOverTwo);
   dog.addEventListener("mouseout", () => {
     dogHintTwo.style.display = "none";
