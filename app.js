@@ -8,6 +8,7 @@
 //
 
 const dog = document.querySelector(".hover-trigger");
+const dogFour = document.querySelector(".hover-trigger-two");
 const dogHint = document.querySelector(".hover-content");
 const dogHintTwo = document.querySelector(".hover-content-two");
 const treatBtn = document.querySelector("#treats");
@@ -37,18 +38,22 @@ const gameFailMsg = document.querySelector("#game-fail");
 const winning = document.querySelector("#winner");
 
 const imageOne = document.querySelector(".first-dog");
-const imageTwo =document.querySelector(".second-dog");
+const imageTwo = document.querySelector(".second-dog");
 const imageThree = document.querySelector(".third-dog");
 const imageFour = document.querySelector(".fourth-dog");
 
+const dogBioOne = document.querySelector(".dog-one");
+const dogBioTwo = document.querySelector(".dog-two");
+const dogBioThree = document.querySelector(".dog-three");
+
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
-const checkComboFail = true;
+//const checkComboFail = true;
 
 const restart = document.querySelector("#restartButton");
-restart.addEventListener("click", function(){
-    window.location.reload();
-    return false;
+restart.addEventListener("click", function () {
+  window.location.reload();
+  return false;
 });
 
 setInterval(() => {
@@ -65,9 +70,9 @@ const dogMouseOver = () => {
   treatBtn.style.boxShadow = "rgb(0, 255, 255) 0 0 15px 5px";
 };
 
-const dogMouseOverTwo = () => {
-  dogHintTwo.style.display = "block";
-};
+// const dogMouseOverTwo = () => {
+//   dogHintTwo.style.display = "block";
+// };
 
 dog.addEventListener("mouseover", dogMouseOver);
 
@@ -91,11 +96,6 @@ treatEl.addEventListener("click", () => {
   if (tools.Treats === 0) {
     failDiv.style.display = "block";
   }
-
-//   // Might need another condition such as choices-two is also not disabled
-//   if (walkEl.disabled) {
-//     // call checkCombo function somewhere here
-//   }
 });
 
 //select walkBtn
@@ -106,6 +106,7 @@ walkEl.addEventListener("click", () => {
   document.querySelector("h1").classList.add("hidden");
   document.querySelector("h2").classList.add("hidden");
   imageOne.classList.add("hidden");
+  dogBioOne.style.display = "block";
   choicesTwo.classList.remove("hidden");
   pageTwoPrompt.classList.remove("hidden");
   imageTwo.classList.remove("hidden");
@@ -149,8 +150,10 @@ correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
   pageTwoPrompt.classList.add("hidden");
   imageTwo.classList.add("hidden");
+  dogBioOne.style.display = "none";
   money.textContent = `Money: ${(tools.Money += 5)}`;
   imageThree.classList.remove("hidden");
+  dogBioTwo.style.display = "block";
   pageThreePrompt.classList.remove("hidden");
   choicesThree.classList.remove("hidden");
 });
@@ -176,7 +179,6 @@ leashEl.addEventListener("click", () => {
 
 wrongThreeA.addEventListener("click", () => {
   failDivThreeA.style.display = "block";
-  let;
 });
 wrongThreeB.addEventListener("click", () => {
   failDivThreeB.style.display = "block";
@@ -192,15 +194,25 @@ correctThree.addEventListener("click", () => {
   choicesThree.classList.add("hidden");
   pageThreePrompt.classList.add("hidden");
   imageThree.classList.add("hidden");
+  dogBioTwo.style.display = "none";
   money.textContent = `Money: ${(tools.Money += 5)}`;
   pageFourPrompt.classList.remove("hidden");
   choicesFour.classList.remove("hidden");
   imageFour.classList.remove("hidden");
-  dog.addEventListener("mouseover", dogMouseOverTwo);
-  dog.addEventListener("mouseout", () => {
-    dogHintTwo.style.display = "none";
-  });
+  dogBioThree.style.display = "block";
 });
+
+  const dogMouseOverTwo = () => {
+    dogHintTwo.style.display = "block";
+  };
+
+  const dogMouseOutTwo = () => {
+    dogHintTwo.style.display = "none";
+  };
+
+  dogFour.addEventListener("mouseover", dogMouseOverTwo);
+  dogFour.addEventListener("mouseout", dogMouseOutTwo);
+
 
 const checkCombo = () => {
   const choicesFourButtons = choicesFour.querySelectorAll("button");
@@ -212,15 +224,12 @@ const checkCombo = () => {
 };
 
 wrongFour.forEach((four) => {
-    four.addEventListener("click", () => {
-  failDivFour.style.display = "block";
-    });
+  four.addEventListener("click", () => {
+    failDivFour.style.display = "block";
+  });
 });
-
 
 correctFour.addEventListener("click", () => {
   money.textContent = `Money: ${[(tools.Money += 5)]}`;
   winning.style.display = "block";
 });
-
-
