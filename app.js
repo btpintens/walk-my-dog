@@ -39,19 +39,6 @@ const dogBioThree = document.querySelector(".dog-three");
 
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Page loaded, now selecting .dog-one...");
-
-  let dogBioOne = document.querySelector(".dog-one");
-  console.log("Found element:", dogBioOne);
-
-  if (dogBioOne) {
-    dogBioOne.classList.add("visible"); // Test to see if it shows
-  } else {
-    console.error("Speech bubble not found in the DOM!");
-  }
-});
-
 const restart = document.querySelector("#restartButton");
 restart.addEventListener("click", function () {
   window.location.reload();
@@ -103,7 +90,6 @@ walkEl.addEventListener("click", () => {
   pageTwoPrompt.classList.remove("hidden");
   imageTwo.classList.remove("hidden");
   walkEl.classList.add("hidden");
-  //walkEl.disabled = true;
   money.textContent = `Money: ${(tools.Money = +5)}`;
   dog.removeEventListener("mouseover", dogMouseOver);
 });

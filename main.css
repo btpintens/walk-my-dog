@@ -33,9 +33,9 @@ h2 {
     flex-direction: column;
 }
 
-p {
+/* p {
    display: none;
-}
+} */
 
 .dog-info {
     position: relative;
@@ -45,7 +45,7 @@ p {
     flex-direction: column;
 }
 
-.speech-bubble {
+.dog-one, .dog-two, .dog-three {
         display: none; 
         position: absolute;
         top: 50%;
@@ -235,7 +235,6 @@ p {
     position: absolute;
     top: 5%;
     border-radius: 25%;
-      /* center: calc(50% - 250px); */
  }
 
  .hidden {
