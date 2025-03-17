@@ -48,7 +48,19 @@ const dogBioThree = document.querySelector(".dog-three");
 
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
-//const checkComboFail = true;
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Page loaded, now selecting .dog-one...");
+
+    let dogBioOne = document.querySelector(".dog-one");
+    console.log("Found element:", dogBioOne);
+
+    if (dogBioOne) {
+        dogBioOne.classList.add("visible"); // Test to see if it shows
+    } else {
+        console.error("Speech bubble not found in the DOM!");
+    }
+});
+
 
 const restart = document.querySelector("#restartButton");
 restart.addEventListener("click", function () {
@@ -106,7 +118,7 @@ walkEl.addEventListener("click", () => {
   document.querySelector("h1").classList.add("hidden");
   document.querySelector("h2").classList.add("hidden");
   imageOne.classList.add("hidden");
-  dogBioOne.style.display = "block";
+  dogBioOne.classList.add("visible");
   choicesTwo.classList.remove("hidden");
   pageTwoPrompt.classList.remove("hidden");
   imageTwo.classList.remove("hidden");
@@ -150,10 +162,10 @@ correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
   pageTwoPrompt.classList.add("hidden");
   imageTwo.classList.add("hidden");
-  dogBioOne.style.display = "none";
+  dogBioOne.classList.remove("visible");
   money.textContent = `Money: ${(tools.Money += 5)}`;
   imageThree.classList.remove("hidden");
-  dogBioTwo.style.display = "block";
+  dogBioTwo.classList.add("visible");
   pageThreePrompt.classList.remove("hidden");
   choicesThree.classList.remove("hidden");
 });
@@ -194,7 +206,7 @@ correctThree.addEventListener("click", () => {
   choicesThree.classList.add("hidden");
   pageThreePrompt.classList.add("hidden");
   imageThree.classList.add("hidden");
-  dogBioTwo.style.display = "none";
+  dogBioTwo.classList.remove("hidden");
   money.textContent = `Money: ${(tools.Money += 5)}`;
   pageFourPrompt.classList.remove("hidden");
   choicesFour.classList.remove("hidden");
