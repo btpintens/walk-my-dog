@@ -1,12 +1,3 @@
-//HOME PAGE
-// DISPLAY ELEMENT: introductory message with image of dog and
-// instructions of how to walk (what you'll encounter along the way)
-//BUTTON start walk button addEventListener
-
-//ICON/IMAGE table that lists tools (leash, bags, treats) we have
-//and how much money earned.
-//
-
 const dog = document.querySelector(".hover-trigger");
 const dogFour = document.querySelector(".hover-trigger-two");
 const dogHint = document.querySelector(".hover-content");
@@ -49,18 +40,17 @@ const dogBioThree = document.querySelector(".dog-three");
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page loaded, now selecting .dog-one...");
+  console.log("Page loaded, now selecting .dog-one...");
 
-    let dogBioOne = document.querySelector(".dog-one");
-    console.log("Found element:", dogBioOne);
+  let dogBioOne = document.querySelector(".dog-one");
+  console.log("Found element:", dogBioOne);
 
-    if (dogBioOne) {
-        dogBioOne.classList.add("visible"); // Test to see if it shows
-    } else {
-        console.error("Speech bubble not found in the DOM!");
-    }
+  if (dogBioOne) {
+    dogBioOne.classList.add("visible"); // Test to see if it shows
+  } else {
+    console.error("Speech bubble not found in the DOM!");
+  }
 });
-
 
 const restart = document.querySelector("#restartButton");
 restart.addEventListener("click", function () {
@@ -82,10 +72,6 @@ const dogMouseOver = () => {
   treatBtn.style.boxShadow = "rgb(0, 255, 255) 0 0 15px 5px";
 };
 
-// const dogMouseOverTwo = () => {
-//   dogHintTwo.style.display = "block";
-// };
-
 dog.addEventListener("mouseover", dogMouseOver);
 
 dog.addEventListener("mouseout", () => {
@@ -93,8 +79,6 @@ dog.addEventListener("mouseout", () => {
   treatBtn.style.boxShadow = "";
 });
 
-//select treat
-//enable walkBtn
 const treatEl = document.querySelector("#treats");
 treatEl.addEventListener("click", () => {
   if (tools.Treats > 0) {
@@ -110,10 +94,6 @@ treatEl.addEventListener("click", () => {
   }
 });
 
-//select walkBtn
-//hide page 1 elements
-//display page 2
-
 walkEl.addEventListener("click", () => {
   document.querySelector("h1").classList.add("hidden");
   document.querySelector("h2").classList.add("hidden");
@@ -128,8 +108,6 @@ walkEl.addEventListener("click", () => {
   dog.removeEventListener("mouseover", dogMouseOver);
 });
 
-//select bagBtn (correct answer)
-//enable choices to click
 const bagEl = document.querySelector("#bags");
 bagEl.addEventListener("click", () => {
   if (tools.Bags > 0) {
@@ -143,8 +121,7 @@ bagEl.addEventListener("click", () => {
     }
   }
 });
-//chose wrong
-//fail message
+
 wrongTwo.forEach((wrong) => {
   wrong.addEventListener("click", () => {
     failDivTwo.style.display = "block";
@@ -154,9 +131,6 @@ wrongTwo.forEach((wrong) => {
 if (tools.Treats <= 2 && tools.Bags === 1) {
   walkEl.disabled = false;
 }
-//select correct answer
-//hide page 2 elements
-//display page 3 elements
 
 correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
@@ -169,10 +143,6 @@ correctTwo.addEventListener("click", () => {
   pageThreePrompt.classList.remove("hidden");
   choicesThree.classList.remove("hidden");
 });
-
-//page 3 prompt
-//select leash button
-//enables page 3 choices
 
 const leashEl = document.querySelector("#leash");
 leashEl.addEventListener("click", () => {
@@ -187,20 +157,12 @@ leashEl.addEventListener("click", () => {
   }
 });
 
-//fail message
-
 wrongThreeA.addEventListener("click", () => {
   failDivThreeA.style.display = "block";
 });
 wrongThreeB.addEventListener("click", () => {
   failDivThreeB.style.display = "block";
 });
-
-//correct answer
-//hide page 3 prompt
-//hide page 3 choices
-//display page 4 prompt
-//display page 4 answers
 
 correctThree.addEventListener("click", () => {
   choicesThree.classList.add("hidden");
@@ -214,17 +176,16 @@ correctThree.addEventListener("click", () => {
   dogBioThree.style.display = "block";
 });
 
-  const dogMouseOverTwo = () => {
-    dogHintTwo.style.display = "block";
-  };
+const dogMouseOverTwo = () => {
+  dogHintTwo.style.display = "block";
+};
 
-  const dogMouseOutTwo = () => {
-    dogHintTwo.style.display = "none";
-  };
+const dogMouseOutTwo = () => {
+  dogHintTwo.style.display = "none";
+};
 
-  dogFour.addEventListener("mouseover", dogMouseOverTwo);
-  dogFour.addEventListener("mouseout", dogMouseOutTwo);
-
+dogFour.addEventListener("mouseover", dogMouseOverTwo);
+dogFour.addEventListener("mouseout", dogMouseOutTwo);
 
 const checkCombo = () => {
   const choicesFourButtons = choicesFour.querySelectorAll("button");

@@ -46,10 +46,10 @@ p {
 }
 
 .speech-bubble {
-        display: none; /* Start hidden */
+        display: none; 
         position: absolute;
         top: 50%;
-        right: 110%; /* Moves it to the left of the dog */
+        right: 110%; 
         transform: translateY(-50%);
         background: rgb(255, 229, 31);
         color: navy;
@@ -65,12 +65,9 @@ p {
         visibility: visible;
     }
     
-    /* Show speech bubble when this class is added */
     .speech-bubble.visible {
         display: block;
     }  
-
-
 
 .first-dog {
     height: 360px;
