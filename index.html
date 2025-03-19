@@ -1,132 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./main.css" />
-    <script defer src="./app.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Rubik+Wet+Paint&family=Shizuru&display=swap" rel="stylesheet">
-    <title>Walk My Dog</title>
-  </head>
-  <body>
-    <h1>Walk My Dog</h1>
-    <h2 class="intro">
-      Try to walk this tiny rascal without getting distracted or falling for
-      any of his tricks. If you both make it home in one piece you will be
-      rewarded with so much money. Don't forget to bring all the tools I left
-      for you - you'll need them to complete the walk and get back home. 
-    </h2>
-    <h2 class="page-two hidden">
-        Nature called and Dog answered. What do you do? 
-    </h2>
-    <h2 class="page-three hidden">
-        Look! A squirrel! What do you do?
-    </h2>
-    <h2 class="page-four hidden">
-        A stranger is coming our way. What do you do?
-    </h2>
 
-    <div class="dog-info">  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./main.css" />
+  <script defer src="./app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Rubik+Wet+Paint&family=Shizuru&display=swap" rel="stylesheet">
+  <title>Walk My Dog</title>
+</head>
+
+<body>
+  <h1>Walk My Dog</h1>
+  <h2 class="intro">
+    Try to walk this tiny rascal without getting distracted or falling for
+    any of his tricks. If you both make it home in one piece you will be
+    rewarded with so much money. Don't forget to bring all the tools I left
+    for you - you'll need them to complete the walk and get back home.
+  </h2>
+  <h2 class="page-two hidden">
+    Nature called and Dog answered. What do you do?
+  </h2>
+  <h2 class="page-three hidden">
+    Look! A squirrel! What do you do?
+  </h2>
+  <h2 class="page-four hidden">
+    A stranger is coming our way. What do you do?
+  </h2>
+
+  <div class="dog-info">
     <img src="./assets/intro img.png" alt="dog first page" class="first-dog hover-trigger">
-    
+
     <p class="speech-bubble hidden dog-one">
-        I look tough, but I'm a little softy. I love scratches just like every other dog. 
-        And that thing my mom told you about me eating my own poop? She was kidding.
+      I look tough, but I'm a little softy. I love scratches just like every other dog.
+      And that thing my mom told you about me eating my own poop? She was kidding.
     </p>
     <img src="./assets/pagetwo.png" alt="dog second page" class="second-dog hidden">
-    
+
     <p class="dog-two speech-bubble hidden">
-        I'm the best on the block when it comes to catching squirrels. 
-          Wanna see me try? 
+      I'm the best on the block when it comes to catching squirrels.
+      Wanna see me try?
     </p>
     <img src="./assets/pagethree.png" alt="dog third page" class="third-dog hidden">
-    
+
     <p class="dog-three speech-bubble hidden">
-        Bite someone's ankle?! I did that ONE TIME. But I'm a grown-up now and would 
-        never even think about doing something so childish. 
+      Bite someone's ankle?! I did that ONE TIME. But I'm a grown-up now and would
+      never even think about doing something so childish.
     </p>
     <img src="./assets/pagefour.png" alt="dog fourth page" class="fourth-dog hover-trigger-two hidden">
-    </div>   
+  </div>
 
-    <div class="menu-container">
+  <div class="menu-container">
     <div class="tools">
-        <button id="leash">Leash: 2</button>
-        <button id="bags">Bags: 2</button>
-        <button id="treats">Treats: 3</button>
-        <button id="money">Money</button>
+      <button id="leash">Leash: 2</button>
+      <button id="bags">Bags: 2</button>
+      <button id="treats">Treats: 3</button>
+      <button id="money">Money</button>
     </div>
-    <div class="walk"> 
-        <button disabled class="walk-button">Let's Walk!</button></div>
+    <div class="walk">
+      <button disabled class="walk-button">Let's Walk!</button>
+      <button id="restartButton">Try Again</button>
     </div>
-        <button id="restartButton">Try Again</button>
-</div>
+  </div>
+  </div>
 
-<section>
+  <section>
     <div class="hover-content hidden" id="hint-one">
-        Hint: Give me a treat if you want me to walk with you!
+      Hint: Give me a treat if you want me to walk with you!
     </div>
-</section>
-<div class="hover-content-two hidden" id="hint-two">
-        Do not listen to him! Under no circumstances is he allowed to bite ankles!
-    </div>
-</section>
+  </section>
+  <div class="hover-content-two hidden" id="hint-two">
+    Do not listen to him! Under no circumstances is he allowed to bite ankles!
+  </div>
+  </section>
 
-    <p class="dog-one speech-bubble hidden">
-        I look tough, but I'm a little softy. I love scratches just like every other dog. 
-        And that thing my mom told you about me eating my own poop? She was kidding.
-    </p>
-    <p class="dog-two speech-bubble hidden">
-        I'm the best on the block when it comes to catching squirrels. 
-          Wanna see me try? 
-    </p>
-    <p class="dog-three speech-bubble hidden">
-        Bite someone's ankle?! I did that ONE TIME. But I'm a grown-up now and would 
-        never even think about doing something so childish. 
-    </p>
+  <p class="dog-one speech-bubble hidden">
+    I look tough, but I'm a little softy. I love scratches just like every other dog.
+    And that thing my mom told you about me eating my own poop? She was kidding.
+  </p>
+  <p class="dog-two speech-bubble hidden">
+    I'm the best on the block when it comes to catching squirrels.
+    Wanna see me try?
+  </p>
+  <p class="dog-three speech-bubble hidden">
+    Bite someone's ankle?! I did that ONE TIME. But I'm a grown-up now and would
+    never even think about doing something so childish.
+  </p>
 
-    <section class="choices-two hidden">
+  <section class="choices-two hidden">
     <button disabled class="two-fail oneA">Leave It</button>
     <button disabled class="oneA" id="correct-two">Pick it up</button>
     <button disabled class="two-fail oneA">Ask Someone Else for Help</button>
-    </section>
+  </section>
 
-    <section class="choices-three hidden">
-        <button disabled class="three-fail-a twoA">Let Him Chase It!</button>
-        <button disabled class="three-fail-b twoA">Chase It Together!</button>
-        <button disabled class="twoA" id="correct-three">Hold that Leash TIGHT!</button>
-    </section>
+  <section class="choices-three hidden">
+    <button disabled class="three-fail-a twoA">Let Him Chase It!</button>
+    <button disabled class="three-fail-b twoA">Chase It Together!</button>
+    <button disabled class="twoA" id="correct-three">Hold that Leash TIGHT!</button>
+  </section>
 
-    <section class="choices-four hidden">
-        <button disabled class="four-fail fourA">Nothing</button>
-        <button disabled class="four-fail fourA">Ask Him Nicely to Be Polite</button>
-        <button disabled class="fourA" id="correct-four">Tell Him to Sit and use a Treat for Distraction</button>
-    </section>
+  <section class="choices-four hidden">
+    <button disabled class="four-fail fourA">Nothing</button>
+    <button disabled class="four-fail fourA">Ask Him Nicely to Be Polite</button>
+    <button disabled class="fourA" id="correct-four">Tell Him to Sit and use a Treat for Distraction</button>
+  </section>
 
-    <div id="fail" class="hidden">
-        FAIL! You're out of treats and you haven't 
-        even left the house yet!
-    </div>
-    <div id="fail-two" class="hidden">
-        FAIL! Bad Citizen! Always pick up afteryourself. 
-    </div>
-    <div id="fail-three-a" class="hidden">
-        FAIL! You lost my dog!
-        </div>
-    <div id="fail-three-b" class="hidden">
-        FAIL! You both ran into traffic and died!
-    </div>
-    <div id="fail-four" class="hidden">
-        FAIL! Dog doesn't respect you AND he's locked up in doggy jail!
-    </div>
-        
-   <div id="game-fail" class="hidden">
-        You're fired! How are you going to walk home without any supplies left? 
-   </div>
+  <div id="fail" class="hidden">
+    FAIL! You're out of treats and you haven't
+    even left the house yet!
+  </div>
+  <div id="fail-two" class="hidden">
+    FAIL! Bad Citizen! Always pick up afteryourself.
+  </div>
+  <div id="fail-three-a" class="hidden">
+    FAIL! You lost my dog!
+  </div>
+  <div id="fail-three-b" class="hidden">
+    FAIL! You both ran into traffic and died!
+  </div>
+  <div id="fail-four" class="hidden">
+    FAIL! Dog doesn't respect you AND he's locked up in doggy jail!
+  </div>
 
-   <div id="winner" class="hidden">
-        You're a LEGEND! You successfully walked baby monster! Are you free tomorrow? Same time? Do you prefer cash or Venmo?
-   </div>
-  </body>
+  <div id="game-fail" class="hidden">
+    You're fired! How are you going to walk home without any supplies left?
+  </div>
+
+  <div id="winner" class="hidden">
+    You're a LEGEND! You successfully walked baby monster! Are you free tomorrow? Same time? Do you prefer cash or Venmo?
+  </div>
+</body>
+
 </html>

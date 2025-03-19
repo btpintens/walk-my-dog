@@ -1,3 +1,12 @@
+// Emre's notes from presentation
+// - It is a unique game, a great idea
+// - The app doesn’t fully fit the page
+// - Hints are great
+// - Good color pallete
+// - You can leave more comments on code to describe what’s going on
+// - Code organization, try using the commented sections (Functions, Event Handlers, Caching Vars, Vars, Consts)
+
+/*------------------------ Cached Element References ------------------------*/
 const dog = document.querySelector(".hover-trigger");
 const dogFour = document.querySelector(".hover-trigger-two");
 const dogHint = document.querySelector(".hover-content");
@@ -27,6 +36,10 @@ const failDivFour = document.querySelector("#fail-four");
 const correctFour = document.querySelector("#correct-four");
 const gameFailMsg = document.querySelector("#game-fail");
 const winning = document.querySelector("#winner");
+const restart = document.querySelector("#restartButton");
+const leashEl = document.querySelector("#leash");
+const bagEl = document.querySelector("#bags");
+const treatEl = document.querySelector("#treats");
 
 const imageOne = document.querySelector(".first-dog");
 const imageTwo = document.querySelector(".second-dog");
@@ -37,13 +50,8 @@ const dogBioOne = document.querySelector(".dog-one");
 const dogBioTwo = document.querySelector(".dog-two");
 const dogBioThree = document.querySelector(".dog-three");
 
+/*-------------------------------- Variables --------------------------------*/
 const tools = { Leash: 2, Bags: 2, Treats: 3, Money: 5 };
-
-const restart = document.querySelector("#restartButton");
-restart.addEventListener("click", function () {
-  window.location.reload();
-  return false;
-});
 
 setInterval(() => {
   console.log("running", tools);
@@ -54,19 +62,28 @@ setInterval(() => {
   checkCombo();
 }, 1000);
 
-const dogMouseOver = () => {
-  dogHint.style.display = "block";
-  treatBtn.style.boxShadow = "rgb(0, 255, 255) 0 0 15px 5px";
-};
-
-dog.addEventListener("mouseover", dogMouseOver);
-
-dog.addEventListener("mouseout", () => {
-  dogHint.style.display = "none";
-  treatBtn.style.boxShadow = "";
+/*-------------------------------- Functions --------------------------------*/
+wrongTwo.forEach((wrong) => {
+  wrong.addEventListener("click", () => {
+    failDivTwo.style.display = "block";
+  });
 });
 
-const treatEl = document.querySelector("#treats");
+if (tools.Treats <= 2 && tools.Bags === 1) {
+  walkEl.disabled = false;
+}
+
+const checkCombo = () => {
+  const choicesFourButtons = choicesFour.querySelectorAll("button");
+  if (tools.Leash === 1 && tools.Bags === 1 && tools.Treats === 1) {
+    choicesFourButtons.forEach((btn) => {
+      btn.disabled = false;
+    });
+  }
+};
+
+/*----------------------------- Event Listeners -----------------------------*/
+
 treatEl.addEventListener("click", () => {
   if (tools.Treats > 0) {
     tools.Treats -= 1;
@@ -94,7 +111,6 @@ walkEl.addEventListener("click", () => {
   dog.removeEventListener("mouseover", dogMouseOver);
 });
 
-const bagEl = document.querySelector("#bags");
 bagEl.addEventListener("click", () => {
   if (tools.Bags > 0) {
     tools.Bags -= 1;
@@ -108,16 +124,6 @@ bagEl.addEventListener("click", () => {
   }
 });
 
-wrongTwo.forEach((wrong) => {
-  wrong.addEventListener("click", () => {
-    failDivTwo.style.display = "block";
-  });
-});
-
-if (tools.Treats <= 2 && tools.Bags === 1) {
-  walkEl.disabled = false;
-}
-
 correctTwo.addEventListener("click", () => {
   choicesTwo.classList.add("hidden");
   pageTwoPrompt.classList.add("hidden");
@@ -130,7 +136,6 @@ correctTwo.addEventListener("click", () => {
   choicesThree.classList.remove("hidden");
 });
 
-const leashEl = document.querySelector("#leash");
 leashEl.addEventListener("click", () => {
   if (tools.Leash > 0) {
     tools.Leash -= 1;
@@ -146,6 +151,7 @@ leashEl.addEventListener("click", () => {
 wrongThreeA.addEventListener("click", () => {
   failDivThreeA.style.display = "block";
 });
+
 wrongThreeB.addEventListener("click", () => {
   failDivThreeB.style.display = "block";
 });
@@ -162,25 +168,23 @@ correctThree.addEventListener("click", () => {
   dogBioThree.style.display = "block";
 });
 
-const dogMouseOverTwo = () => {
+dogFour.addEventListener("mouseover", () => {
   dogHintTwo.style.display = "block";
-};
+});
 
-const dogMouseOutTwo = () => {
+dogFour.addEventListener("mouseout", () => {
   dogHintTwo.style.display = "none";
-};
+});
 
-dogFour.addEventListener("mouseover", dogMouseOverTwo);
-dogFour.addEventListener("mouseout", dogMouseOutTwo);
+dog.addEventListener("mouseover", () => {
+  dogHint.style.display = "block";
+  treatBtn.style.boxShadow = "rgb(0, 255, 255) 0 0 15px 5px";
+});
 
-const checkCombo = () => {
-  const choicesFourButtons = choicesFour.querySelectorAll("button");
-  if (tools.Leash === 1 && tools.Bags === 1 && tools.Treats === 1) {
-    choicesFourButtons.forEach((btn) => {
-      btn.disabled = false;
-    });
-  }
-};
+dog.addEventListener("mouseout", () => {
+  dogHint.style.display = "none";
+  treatBtn.style.boxShadow = "";
+});
 
 wrongFour.forEach((four) => {
   four.addEventListener("click", () => {
@@ -191,4 +195,9 @@ wrongFour.forEach((four) => {
 correctFour.addEventListener("click", () => {
   money.textContent = `Money: ${[(tools.Money += 5)]}`;
   winning.style.display = "block";
+});
+
+restart.addEventListener("click", function () {
+  window.location.reload();
+  return false;
 });
